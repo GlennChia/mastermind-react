@@ -1,0 +1,14 @@
+.Overall {
+  width: 20%;
+}
+
+.Title {
+  color: white;
+  font-size: 20px;
+  font-family: Orbitron;
+}
+
+.Controls {
+  margin-top: 10px;
+  text-align: left;
+}
