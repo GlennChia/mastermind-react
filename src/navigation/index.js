@@ -6,7 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact={true} component={Game} />
+        <Route path="/" component={Game} />
         <Route render={() => <h1>Not found</h1>} />
       </Switch>
     </BrowserRouter>
