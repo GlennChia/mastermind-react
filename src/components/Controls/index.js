@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./index.module.css";
 
-export const Controls = ({ setModel, models, answer }) => {
+export const Controls = ({ setModel, models, answer, startGame }) => {
   return (
     <div className={classes.Overall}>
       <div className={classes.Title}>Mastermind</div>
@@ -26,7 +26,10 @@ export const Controls = ({ setModel, models, answer }) => {
             />
           ))}
         </div>
-        <button className={[classes.Button, classes.Title].join(" ")}>
+        <button
+          onClick={() => startGame()}
+          className={[classes.Button, classes.Title].join(" ")}
+        >
           Start Game
         </button>
       </div>
