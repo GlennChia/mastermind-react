@@ -9,7 +9,12 @@ const COLORS = ["red", "blue", "green", "purple", "yellow"];
 
 export const Game = () => {
   const [model, setModel] = useState(MODELS[0]);
-  const [answer, setAnswer] = useState(["red", "blue", "green", "purple"]);
+  const [answer, setAnswer] = useState([
+    "default",
+    "default",
+    "default",
+    "default",
+  ]);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);

@@ -69,6 +69,10 @@
   background-color: #FFFF00;
 }
 
+.default {
+  background-color: #7B849C;
+}
+
 .Button {
   background-color: #31B363;
   border-radius: 5px;
