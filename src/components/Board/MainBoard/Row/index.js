@@ -56,6 +56,7 @@ export const Row = ({ row, rowNumber, setRow, currentIndex }) => {
           onClick={() => {
             setRow(selection);
           }}
+          disabled={selection.includes("default")}
           className={[classes.Circle, classes.ButtonGreen].join(" ")}
         >
           <img src={tick} className={classes.Image} />
