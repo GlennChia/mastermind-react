@@ -26,6 +26,9 @@ export const Controls = ({ setModel, models, answer }) => {
             />
           ))}
         </div>
+        <button className={[classes.Button, classes.Title].join(" ")}>
+          Start Game
+        </button>
       </div>
     </div>
   );
