@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./index.module.css";
 
-export const Controls = ({ setModel, models }) => {
+export const Controls = ({ setModel, models, answer }) => {
   return (
     <div className={classes.Overall}>
       <div className={classes.Title}>Mastermind</div>
@@ -18,6 +18,14 @@ export const Controls = ({ setModel, models }) => {
           ))}
         </select>
         <div className={classes.Title}>Answer:</div>
+        <div className={classes.AnswerRow}>
+          {answer.map((ans, index) => (
+            <div
+              key={index}
+              className={[classes.Circle, classes[ans]].join(" ")}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
