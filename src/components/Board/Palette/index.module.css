@@ -1,0 +1,49 @@
+.Overall {
+  display: inline-block;
+  background: #282c34;
+  width: 15%;
+}
+
+.Palette {
+  display: inline-block;
+  background: #282c34;
+  border-color: #2E4583;
+  border-style: solid;
+  border-width: 2px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.Circle {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.red {
+  background-color: #FF0000;
+}
+
+.green {
+  background-color: #92D050;
+}
+
+.blue {
+  background-color: #00B0F0;
+}
+
+.purple {
+  background-color: #7030A0;
+}
+
+.yellow {
+  background-color: #FFFF00;
+}
+
+.default {
+  background-color: #7B849C;
+}

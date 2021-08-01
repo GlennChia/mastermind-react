@@ -1,10 +1,12 @@
 import React from "react";
 import classes from "./index.module.css";
+import { Palette } from "./Palette";
 
-export const Board = () => {
+export const Board = ({ colors }) => {
   return (
     <div className={classes.Overall}>
-      <div className={classes.Rectangle} />
+      <Palette colors={colors} />
+      <div className={classes.MainBoard} />
     </div>
   );
 };

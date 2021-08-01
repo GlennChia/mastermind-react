@@ -25,7 +25,7 @@ export const Game = () => {
   return (
     <div className={classes.App}>
       <header className={classes.Appheader}>
-        <Board />
+        <Board colors={COLORS} />
         <Controls
           setModel={setModel}
           models={MODELS}
@@ -35,7 +35,7 @@ export const Game = () => {
           answerVisible={answerVisible}
           hidden_colors={HIDDEN_COLORS}
         />
-        <Board />
+        <Board colors={COLORS} />
       </header>
     </div>
   );
