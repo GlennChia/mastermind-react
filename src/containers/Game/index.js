@@ -4,6 +4,7 @@ import { Controls } from "../../components/Controls";
 import { Board } from "../../components/Board";
 import { createAnswer } from "../../utils/createAnswer";
 import { getMoveScore } from "../../utils/getMoveScore";
+import { stateToColor } from "../../utils/stateToColor";
 
 const MODELS = ["Naive", "Deep Q Learning", "Q Learning"];
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
@@ -67,16 +68,7 @@ export const Game = () => {
       userBoard[currentIndex],
       answer
     );
-    let stateColor = [];
-    for (let i = 0; i < incorrect; i++) {
-      stateColor.push("default");
-    }
-    for (let i = 0; i < semi; i++) {
-      stateColor.push("white");
-    }
-    for (let i = 0; i < perfect; i++) {
-      stateColor.push("black");
-    }
+    let stateColor = stateToColor(incorrect, semi, perfect);
     const tempState = [...userState];
     tempState[currentIndex] = stateColor;
     setUserState(tempState);
