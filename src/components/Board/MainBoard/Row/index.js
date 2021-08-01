@@ -1,16 +1,28 @@
 import React, { useState } from "react";
 import classes from "./index.module.css";
 
+const COLORS = ["red", "blue", "green", "purple", "yellow"];
 const DEFAULT_COLORS = ["default", "default", "default", "default"];
 
 export const Row = ({ row, rowNumber }) => {
   const [selection, setSelection] = useState(row);
+  const toggleColors = (index) => {
+    const tempSelection = [...selection];
+    const colorIndex =
+      tempSelection[index] === "default"
+        ? -1
+        : COLORS.indexOf(tempSelection[index]);
+    const newColorIndex = (colorIndex + 1) % COLORS.length;
+    tempSelection[index] = COLORS[newColorIndex];
+    setSelection(tempSelection);
+  };
   return (
     <div className={classes.Row}>
       <div className={classes.RowNumber}>{rowNumber}</div>
       {selection.map((select, index) => (
         <button
           key={index}
+          onClick={() => toggleColors(index)}
           className={[classes.Circle, classes[select]].join(" ")}
         />
       ))}
