@@ -43,6 +43,7 @@ export const Game = () => {
     const createdAnswer = createAnswer(COLORS, 4);
     setCurrentIndex(0);
     setUserBoard(INITIAL_BOARD);
+    setUserState(INITIAL_STATE);
     setAnswer(createdAnswer);
   };
 
