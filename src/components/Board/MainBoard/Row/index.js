@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./index.module.css";
+import tick from "../../../../assets/tick.png";
 
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
 const DEFAULT_COLORS = ["default", "default", "default", "default"];
@@ -50,6 +51,9 @@ export const Row = ({ row, rowNumber }) => {
           )}
         />
       </div>
+      <button className={[classes.Circle, classes.ButtonGreen].join(" ")}>
+        <img src={tick} className={classes.Image} />
+      </button>
     </div>
   );
 };
