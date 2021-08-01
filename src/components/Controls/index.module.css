@@ -99,3 +99,11 @@
   font-family: Orbitron;
   margin-top: 30px;
 }
+
+.Lose {
+  align-items: center;
+  color: #FF0000;
+  font-size: 25px;
+  font-family: Orbitron;
+  margin-top: 30px;
+}

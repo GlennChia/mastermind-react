@@ -39,10 +39,12 @@ export const Game = () => {
   const [userState, setUserState] = useState(INITIAL_STATE);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [winStatus, setWinStatus] = useState(false);
+  const [loseStatus, setLoseStatus] = useState(false);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
     setWinStatus(false);
+    setLoseStatus(false);
     setCurrentIndex(0);
     setUserBoard(INITIAL_BOARD);
     setUserState(INITIAL_STATE);
@@ -80,6 +82,7 @@ export const Game = () => {
     setUserState(tempState);
     perfect === 4 ? setWinStatus(true) : null;
     setCurrentIndex(newIndex);
+    newIndex >= userBoard.length && perfect < 4 ? setLoseStatus(true) : null;
   };
 
   return (
@@ -103,6 +106,7 @@ export const Game = () => {
           answerVisible={answerVisible}
           hidden_colors={HIDDEN_COLORS}
           winStatus={winStatus}
+          loseStatus={loseStatus}
         />
         <Board
           colors={COLORS}

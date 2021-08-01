@@ -10,8 +10,9 @@ export const Controls = ({
   answerVisible,
   hidden_colors,
   winStatus,
+  loseStatus,
 }) => {
-  let displayAnswers = answerVisible ? answer : hidden_colors;
+  let displayAnswers = answerVisible || loseStatus ? answer : hidden_colors;
   return (
     <div className={classes.Overall}>
       <div className={classes.Title}>Mastermind</div>
@@ -54,6 +55,7 @@ export const Controls = ({
         </button>
       </div>
       {winStatus ? <div className={classes.Win}>Congratulations</div> : null}
+      {loseStatus ? <div className={classes.Lose}>Game Over</div> : null}
     </div>
   );
 };
