@@ -12,6 +12,7 @@ export const Row = ({
   currentIndex,
   lockRow,
   state,
+  winStatus,
 }) => {
   const toggleColors = (index) => {
     const tempSelection = [...row];
@@ -42,7 +43,7 @@ export const Row = ({
         <div className={[classes.SmallCircle, classes[state[2]]].join(" ")} />
         <div className={[classes.SmallCircle, classes[state[3]]].join(" ")} />
       </div>
-      {currentIndex === rowNumber ? (
+      {currentIndex === rowNumber && !winStatus ? (
         <button
           onClick={() => {
             lockRow();

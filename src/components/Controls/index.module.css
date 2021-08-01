@@ -91,3 +91,11 @@
 .ButtonYellow {
   background-color: #D29446;
 }
+
+.Win {
+  align-items: center;
+  color: #31B363;
+  font-size: 25px;
+  font-family: Orbitron;
+  margin-top: 30px;
+}

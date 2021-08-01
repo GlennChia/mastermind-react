@@ -9,6 +9,7 @@ export const Controls = ({
   showAnswer,
   answerVisible,
   hidden_colors,
+  winStatus,
 }) => {
   let displayAnswers = answerVisible ? answer : hidden_colors;
   return (
@@ -52,6 +53,7 @@ export const Controls = ({
           Show Answer
         </button>
       </div>
+      {winStatus ? <div className={classes.Win}>Congratulations</div> : null}
     </div>
   );
 };

@@ -10,6 +10,7 @@ export const Board = ({
   currentIndex,
   lockRow,
   state,
+  winStatus,
 }) => {
   return (
     <div className={classes.Overall}>
@@ -20,6 +21,7 @@ export const Board = ({
         currentIndex={currentIndex}
         lockRow={lockRow}
         state={state}
+        winStatus={winStatus}
       />
     </div>
   );

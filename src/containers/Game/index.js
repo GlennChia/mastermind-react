@@ -38,9 +38,11 @@ export const Game = () => {
   const [userBoard, setUserBoard] = useState(INITIAL_BOARD);
   const [userState, setUserState] = useState(INITIAL_STATE);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [winStatus, setWinStatus] = useState(false);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
+    setWinStatus(false);
     setCurrentIndex(0);
     setUserBoard(INITIAL_BOARD);
     setUserState(INITIAL_STATE);
@@ -76,6 +78,7 @@ export const Game = () => {
     const tempState = [...userState];
     tempState[currentIndex] = stateColor;
     setUserState(tempState);
+    perfect === 4 ? setWinStatus(true) : null;
     setCurrentIndex(newIndex);
   };
 
@@ -89,6 +92,7 @@ export const Game = () => {
           currentIndex={currentIndex}
           lockRow={lockRow}
           state={userState}
+          winStatus={winStatus}
         />
         <Controls
           setModel={setModel}
@@ -98,6 +102,7 @@ export const Game = () => {
           showAnswer={showAnswer}
           answerVisible={answerVisible}
           hidden_colors={HIDDEN_COLORS}
+          winStatus={winStatus}
         />
         <Board
           colors={COLORS}
