@@ -23,6 +23,7 @@ export const Row = ({ row, rowNumber, setRow, currentIndex, lockRow }) => {
         <button
           key={index}
           onClick={() => toggleColors(index)}
+          disabled={rowNumber !== currentIndex}
           className={[classes.Circle, classes[select]].join(" ")}
         />
       ))}
