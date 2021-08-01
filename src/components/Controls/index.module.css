@@ -12,3 +12,15 @@
   margin-top: 10px;
   text-align: left;
 }
+
+.Dropdown {
+  background-color: #282c34;
+  border-radius: 5px;
+  border-color: #2E4583;
+  border-width: 3px;
+  color: white;
+  font-size: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+}
