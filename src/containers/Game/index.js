@@ -28,6 +28,7 @@ export const Game = () => {
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
+    setCurrentIndex(0);
     setAnswer(createdAnswer);
   };
 
