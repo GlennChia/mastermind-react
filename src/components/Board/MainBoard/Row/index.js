@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./index.module.css";
 import tick from "../../../../assets/tick.png";
 
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
 const DEFAULT_COLORS = ["default", "default", "default", "default"];
 
-export const Row = ({ row, rowNumber, setRow, currentIndex }) => {
-  const [selection, setSelection] = useState(row);
+export const Row = ({ row, rowNumber, setRow, currentIndex, lockRow }) => {
   const toggleColors = (index) => {
-    const tempSelection = [...selection];
+    const tempSelection = [...row];
     const colorIndex =
       tempSelection[index] === "default"
         ? -1
         : COLORS.indexOf(tempSelection[index]);
     const newColorIndex = (colorIndex + 1) % COLORS.length;
     tempSelection[index] = COLORS[newColorIndex];
-    setSelection(tempSelection);
+    setRow(tempSelection);
   };
   return (
     <div className={classes.Row}>
       <div className={classes.RowNumber}>{rowNumber}</div>
-      {selection.map((select, index) => (
+      {row.map((select, index) => (
         <button
           key={index}
           onClick={() => toggleColors(index)}
@@ -54,9 +53,9 @@ export const Row = ({ row, rowNumber, setRow, currentIndex }) => {
       {currentIndex === rowNumber ? (
         <button
           onClick={() => {
-            setRow(selection);
+            lockRow();
           }}
-          disabled={selection.includes("default")}
+          disabled={row.includes("default")}
           className={[classes.Circle, classes.ButtonGreen].join(" ")}
         >
           <img src={tick} className={classes.Image} />

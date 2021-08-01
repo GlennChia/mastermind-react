@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./index.module.css";
 import { Row } from "./Row";
 
-export const MainBoard = ({ board, setRow, currentIndex }) => {
+export const MainBoard = ({ board, setRow, currentIndex, lockRow }) => {
   return (
     <div className={classes.Overall}>
       <div className={classes.MainBoard}>
@@ -13,6 +13,7 @@ export const MainBoard = ({ board, setRow, currentIndex }) => {
             rowNumber={index}
             setRow={setRow}
             currentIndex={currentIndex}
+            lockRow={lockRow}
           />
         ))}
       </div>

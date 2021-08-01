@@ -29,6 +29,7 @@ export const Game = () => {
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
     setCurrentIndex(0);
+    setUserBoard(INITIAL_BOARD);
     setAnswer(createdAnswer);
   };
 
@@ -39,9 +40,12 @@ export const Game = () => {
   const setRow = (rowValue) => {
     const tempBoard = [...userBoard];
     tempBoard[currentIndex] = rowValue;
+    setUserBoard(tempBoard);
+  };
+
+  const lockRow = () => {
     const newIndex = currentIndex + 1;
     setCurrentIndex(newIndex);
-    setUserBoard(tempBoard);
   };
 
   return (
@@ -49,9 +53,10 @@ export const Game = () => {
       <header className={classes.Appheader}>
         <Board
           colors={COLORS}
-          board={INITIAL_BOARD}
+          board={userBoard}
           setRow={setRow}
           currentIndex={currentIndex}
+          lockRow={lockRow}
         />
         <Controls
           setModel={setModel}
