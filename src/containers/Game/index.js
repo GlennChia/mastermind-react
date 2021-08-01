@@ -24,6 +24,7 @@ export const Game = () => {
   const [answer, setAnswer] = useState(HIDDEN_COLORS);
   const [answerVisible, setAnswerVisible] = useState(false);
   const [userBoard, setUserBoard] = useState(INITIAL_BOARD);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
@@ -34,16 +35,23 @@ export const Game = () => {
     setAnswerVisible(!answerVisible);
   };
 
-  const setRow = (rowIndex, rowValue) => {
+  const setRow = (rowValue) => {
     const tempBoard = [...userBoard];
-    tempBoard[rowIndex] = rowValue;
+    tempBoard[currentIndex] = rowValue;
+    const newIndex = currentIndex + 1;
+    setCurrentIndex(newIndex);
     setUserBoard(tempBoard);
   };
 
   return (
     <div className={classes.App}>
       <header className={classes.Appheader}>
-        <Board colors={COLORS} board={userBoard} setRow={setRow} />
+        <Board
+          colors={COLORS}
+          board={INITIAL_BOARD}
+          setRow={setRow}
+          currentIndex={currentIndex}
+        />
         <Controls
           setModel={setModel}
           models={MODELS}
