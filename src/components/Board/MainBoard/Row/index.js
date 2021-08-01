@@ -3,11 +3,11 @@ import classes from "./index.module.css";
 
 const DEFAULT_COLORS = ["default", "default", "default", "default"];
 
-export const Row = () => {
-  const [selection, setSelection] = useState(DEFAULT_COLORS);
+export const Row = ({ row, rowNumber }) => {
+  const [selection, setSelection] = useState(row);
   return (
     <div className={classes.Row}>
-      <div className={classes.RowNumber}>1</div>
+      <div className={classes.RowNumber}>{rowNumber}</div>
       {selection.map((select, index) => (
         <button
           key={index}

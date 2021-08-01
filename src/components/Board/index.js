@@ -3,11 +3,11 @@ import classes from "./index.module.css";
 import { Palette } from "./Palette";
 import { MainBoard } from "./MainBoard";
 
-export const Board = ({ colors }) => {
+export const Board = ({ colors, board }) => {
   return (
     <div className={classes.Overall}>
       <Palette colors={colors} />
-      <MainBoard />
+      <MainBoard board={board} />
     </div>
   );
 };
