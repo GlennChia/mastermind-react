@@ -5,7 +5,7 @@ import tick from "../../../../assets/tick.png";
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
 const DEFAULT_COLORS = ["default", "default", "default", "default"];
 
-export const Row = ({ row, rowNumber }) => {
+export const Row = ({ row, rowNumber, setRow }) => {
   const [selection, setSelection] = useState(row);
   const toggleColors = (index) => {
     const tempSelection = [...selection];
@@ -51,7 +51,12 @@ export const Row = ({ row, rowNumber }) => {
           )}
         />
       </div>
-      <button className={[classes.Circle, classes.ButtonGreen].join(" ")}>
+      <button
+        onClick={() => {
+          setRow(rowNumber, selection);
+        }}
+        className={[classes.Circle, classes.ButtonGreen].join(" ")}
+      >
         <img src={tick} className={classes.Image} />
       </button>
     </div>

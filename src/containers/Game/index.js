@@ -34,10 +34,16 @@ export const Game = () => {
     setAnswerVisible(!answerVisible);
   };
 
+  const setRow = (rowIndex, rowValue) => {
+    const tempBoard = [...userBoard];
+    tempBoard[rowIndex] = rowValue;
+    setUserBoard(tempBoard);
+  };
+
   return (
     <div className={classes.App}>
       <header className={classes.Appheader}>
-        <Board colors={COLORS} board={userBoard} />
+        <Board colors={COLORS} board={userBoard} setRow={setRow} />
         <Controls
           setModel={setModel}
           models={MODELS}
@@ -47,7 +53,7 @@ export const Game = () => {
           answerVisible={answerVisible}
           hidden_colors={HIDDEN_COLORS}
         />
-        <Board colors={COLORS} board={INITIAL_BOARD} />
+        <Board colors={COLORS} board={INITIAL_BOARD} setRow={setRow} />
       </header>
     </div>
   );
