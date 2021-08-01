@@ -1,0 +1,16 @@
+.Overall {
+  display: inline-block;
+  width: 85%;
+  background: #282c34;
+}
+
+.MainBoard {
+  display: inline-block;
+  background: #282c34;
+  border-color: #2E4583;
+  border-style: solid;
+  border-width: 2px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  width: 95%;
+}

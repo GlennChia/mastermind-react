@@ -1,0 +1,61 @@
+.Row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.RowNumber {
+  color: #7B849C;
+  font-size: 20px;
+  font-family: Orbitron;
+  width: 10px;
+}
+
+.Circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.red {
+  background-color: #FF0000;
+}
+
+.green {
+  background-color: #92D050;
+}
+
+.blue {
+  background-color: #00B0F0;
+}
+
+.purple {
+  background-color: #7030A0;
+}
+
+.yellow {
+  background-color: #FFFF00;
+}
+
+.white {
+  background-color: #FFFF;
+}
+
+.black {
+  background-color: #0000;
+}
+
+.default {
+  background-color: #7B849C;
+}
+
+.SmallCircle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: 4px;
+}
