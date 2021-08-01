@@ -1,7 +1,16 @@
 import React from "react";
 import classes from "./index.module.css";
 
-export const Controls = ({ setModel, models, answer, startGame }) => {
+export const Controls = ({
+  setModel,
+  models,
+  answer,
+  startGame,
+  showAnswer,
+  answerVisible,
+  hidden_colors,
+}) => {
+  let displayAnswers = answerVisible ? answer : hidden_colors;
   return (
     <div className={classes.Overall}>
       <div className={classes.Title}>Mastermind</div>
@@ -19,7 +28,7 @@ export const Controls = ({ setModel, models, answer, startGame }) => {
         </select>
         <div className={classes.Title}>Answer:</div>
         <div className={classes.AnswerRow}>
-          {answer.map((ans, index) => (
+          {displayAnswers.map((ans, index) => (
             <div
               key={index}
               className={[classes.Circle, classes[ans]].join(" ")}
@@ -28,9 +37,19 @@ export const Controls = ({ setModel, models, answer, startGame }) => {
         </div>
         <button
           onClick={() => startGame()}
-          className={[classes.Button, classes.Title].join(" ")}
+          className={[classes.Button, classes.ButtonGreen, classes.Title].join(
+            " "
+          )}
         >
           Start Game
+        </button>
+        <button
+          onClick={() => showAnswer()}
+          className={[classes.Button, classes.ButtonYellow, classes.Title].join(
+            " "
+          )}
+        >
+          Show Answer
         </button>
       </div>
     </div>

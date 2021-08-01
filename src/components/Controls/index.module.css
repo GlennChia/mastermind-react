@@ -74,14 +74,20 @@
 }
 
 .Button {
-  background-color: #31B363;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 15%;
-  margin-bottom: 5%;
+  margin-top: 10%;
   padding-top: 7px;
   padding-bottom: 7px;
   width: 100%;
+}
+
+.ButtonGreen {
+  background-color: #31B363;
+}
+
+.ButtonYellow {
+  background-color: #D29446;
 }

@@ -6,19 +6,20 @@ import { createAnswer } from "../../utils/createAnswer";
 
 const MODELS = ["Naive", "Deep Q Learning", "Q Learning"];
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
+const HIDDEN_COLORS = ["default", "default", "default", "default"];
 
 export const Game = () => {
   const [model, setModel] = useState(MODELS[0]);
-  const [answer, setAnswer] = useState([
-    "default",
-    "default",
-    "default",
-    "default",
-  ]);
+  const [answer, setAnswer] = useState(HIDDEN_COLORS);
+  const [answerVisible, setAnswerVisible] = useState(false);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
     setAnswer(createdAnswer);
+  };
+
+  const showAnswer = () => {
+    setAnswerVisible(!answerVisible);
   };
 
   return (
@@ -30,6 +31,9 @@ export const Game = () => {
           models={MODELS}
           answer={answer}
           startGame={startGame}
+          showAnswer={showAnswer}
+          answerVisible={answerVisible}
+          hidden_colors={HIDDEN_COLORS}
         />
         <Board />
       </header>
