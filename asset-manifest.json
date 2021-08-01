@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mastermind-react/static/css/main.2ebc8e66.chunk.css",
+    "main.js": "/mastermind-react/static/js/main.c3cbf99a.chunk.js",
+    "main.js.map": "/mastermind-react/static/js/main.c3cbf99a.chunk.js.map",
+    "runtime-main.js": "/mastermind-react/static/js/runtime-main.c956fa22.js",
+    "runtime-main.js.map": "/mastermind-react/static/js/runtime-main.c956fa22.js.map",
+    "static/js/2.91adfb86.chunk.js": "/mastermind-react/static/js/2.91adfb86.chunk.js",
+    "static/js/2.91adfb86.chunk.js.map": "/mastermind-react/static/js/2.91adfb86.chunk.js.map",
+    "static/js/3.d309294e.chunk.js": "/mastermind-react/static/js/3.d309294e.chunk.js",
+    "static/js/3.d309294e.chunk.js.map": "/mastermind-react/static/js/3.d309294e.chunk.js.map",
+    "index.html": "/mastermind-react/index.html",
+    "static/css/main.2ebc8e66.chunk.css.map": "/mastermind-react/static/css/main.2ebc8e66.chunk.css.map",
+    "static/js/2.91adfb86.chunk.js.LICENSE.txt": "/mastermind-react/static/js/2.91adfb86.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/mastermind-react/static/media/Orbitron-VariableFont_wght.bd8d17ef.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c956fa22.js",
+    "static/js/2.91adfb86.chunk.js",
+    "static/css/main.2ebc8e66.chunk.css",
+    "static/js/main.c3cbf99a.chunk.js"
+  ]
+}
