@@ -3,11 +3,23 @@ import classes from "./index.module.css";
 import { Controls } from "../../components/Controls";
 import { Board } from "../../components/Board";
 import { createAnswer } from "../../utils/createAnswer";
+import { getMoveScore } from "../../utils/getMoveScore";
 
 const MODELS = ["Naive", "Deep Q Learning", "Q Learning"];
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
 const HIDDEN_COLORS = ["default", "default", "default", "default"];
 const INITIAL_BOARD = [
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+  ["default", "default", "default", "default"],
+];
+const INITIAL_STATE = [
   ["default", "default", "default", "default"],
   ["default", "default", "default", "default"],
   ["default", "default", "default", "default"],
@@ -24,6 +36,7 @@ export const Game = () => {
   const [answer, setAnswer] = useState(HIDDEN_COLORS);
   const [answerVisible, setAnswerVisible] = useState(false);
   const [userBoard, setUserBoard] = useState(INITIAL_BOARD);
+  const [userState, setUserState] = useState(INITIAL_STATE);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const startGame = () => {
@@ -45,6 +58,23 @@ export const Game = () => {
 
   const lockRow = () => {
     const newIndex = currentIndex + 1;
+    const [incorrect, semi, perfect] = getMoveScore(
+      userBoard[currentIndex],
+      answer
+    );
+    let stateColor = [];
+    for (let i = 0; i < incorrect; i++) {
+      stateColor.push("default");
+    }
+    for (let i = 0; i < semi; i++) {
+      stateColor.push("white");
+    }
+    for (let i = 0; i < perfect; i++) {
+      stateColor.push("black");
+    }
+    const tempState = [...userState];
+    tempState[currentIndex] = stateColor;
+    setUserState(tempState);
     setCurrentIndex(newIndex);
   };
 
@@ -57,6 +87,7 @@ export const Game = () => {
           setRow={setRow}
           currentIndex={currentIndex}
           lockRow={lockRow}
+          state={userState}
         />
         <Controls
           setModel={setModel}
@@ -67,7 +98,12 @@ export const Game = () => {
           answerVisible={answerVisible}
           hidden_colors={HIDDEN_COLORS}
         />
-        <Board colors={COLORS} board={INITIAL_BOARD} setRow={setRow} />
+        <Board
+          colors={COLORS}
+          board={INITIAL_BOARD}
+          setRow={setRow}
+          state={INITIAL_STATE}
+        />
       </header>
     </div>
   );

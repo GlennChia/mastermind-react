@@ -5,7 +5,14 @@ import tick from "../../../../assets/tick.png";
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
 const DEFAULT_COLORS = ["default", "default", "default", "default"];
 
-export const Row = ({ row, rowNumber, setRow, currentIndex, lockRow }) => {
+export const Row = ({
+  row,
+  rowNumber,
+  setRow,
+  currentIndex,
+  lockRow,
+  state,
+}) => {
   const toggleColors = (index) => {
     const tempSelection = [...row];
     const colorIndex =
@@ -28,28 +35,12 @@ export const Row = ({ row, rowNumber, setRow, currentIndex, lockRow }) => {
         />
       ))}
       <div>
-        <div
-          className={[classes.SmallCircle, classes[DEFAULT_COLORS[0]]].join(
-            " "
-          )}
-        />
-        <div
-          className={[classes.SmallCircle, classes[DEFAULT_COLORS[1]]].join(
-            " "
-          )}
-        />
+        <div className={[classes.SmallCircle, classes[state[0]]].join(" ")} />
+        <div className={[classes.SmallCircle, classes[state[1]]].join(" ")} />
       </div>
       <div>
-        <div
-          className={[classes.SmallCircle, classes[DEFAULT_COLORS[2]]].join(
-            " "
-          )}
-        />
-        <div
-          className={[classes.SmallCircle, classes[DEFAULT_COLORS[3]]].join(
-            " "
-          )}
-        />
+        <div className={[classes.SmallCircle, classes[state[2]]].join(" ")} />
+        <div className={[classes.SmallCircle, classes[state[3]]].join(" ")} />
       </div>
       {currentIndex === rowNumber ? (
         <button

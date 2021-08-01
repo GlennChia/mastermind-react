@@ -3,7 +3,14 @@ import classes from "./index.module.css";
 import { Palette } from "./Palette";
 import { MainBoard } from "./MainBoard";
 
-export const Board = ({ colors, board, setRow, currentIndex, lockRow }) => {
+export const Board = ({
+  colors,
+  board,
+  setRow,
+  currentIndex,
+  lockRow,
+  state,
+}) => {
   return (
     <div className={classes.Overall}>
       <Palette colors={colors} />
@@ -12,6 +19,7 @@ export const Board = ({ colors, board, setRow, currentIndex, lockRow }) => {
         setRow={setRow}
         currentIndex={currentIndex}
         lockRow={lockRow}
+        state={state}
       />
     </div>
   );
