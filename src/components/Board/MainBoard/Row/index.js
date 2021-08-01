@@ -61,14 +61,6 @@ export const Row = ({ row, rowNumber, setRow, currentIndex }) => {
           <img src={tick} className={classes.Image} />
         </button>
       ) : null}
-      {/* <button
-        onClick={() => {
-          setRow(selection);
-        }}
-        className={[classes.Circle, classes.ButtonGreen].join(" ")}
-      >
-        <img src={tick} className={classes.Image} />
-      </button> */}
     </div>
   );
 };
