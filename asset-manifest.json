@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mastermind-react/static/css/main.2ebc8e66.chunk.css",
+    "main.css": "/mastermind-react/static/css/main.dcb21c4e.chunk.css",
     "main.js": "/mastermind-react/static/js/main.6c853104.chunk.js",
     "main.js.map": "/mastermind-react/static/js/main.6c853104.chunk.js.map",
     "runtime-main.js": "/mastermind-react/static/js/runtime-main.c956fa22.js",
@@ -10,14 +10,14 @@
     "static/js/3.d309294e.chunk.js": "/mastermind-react/static/js/3.d309294e.chunk.js",
     "static/js/3.d309294e.chunk.js.map": "/mastermind-react/static/js/3.d309294e.chunk.js.map",
     "index.html": "/mastermind-react/index.html",
-    "static/css/main.2ebc8e66.chunk.css.map": "/mastermind-react/static/css/main.2ebc8e66.chunk.css.map",
+    "static/css/main.dcb21c4e.chunk.css.map": "/mastermind-react/static/css/main.dcb21c4e.chunk.css.map",
     "static/js/2.91adfb86.chunk.js.LICENSE.txt": "/mastermind-react/static/js/2.91adfb86.chunk.js.LICENSE.txt",
     "static/media/index.css": "/mastermind-react/static/media/Orbitron-VariableFont_wght.bd8d17ef.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.c956fa22.js",
     "static/js/2.91adfb86.chunk.js",
-    "static/css/main.2ebc8e66.chunk.css",
+    "static/css/main.dcb21c4e.chunk.css",
     "static/js/main.6c853104.chunk.js"
   ]
 }
