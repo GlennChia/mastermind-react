@@ -42,6 +42,7 @@ export const Game = () => {
   const [gameStart, setGameStart] = useState(false);
   const [winStatus, setWinStatus] = useState(false);
   const [loseStatus, setLoseStatus] = useState(false);
+  const [aiAnswerVisible, setAiAnswerVisible] = useState(false);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
@@ -56,6 +57,10 @@ export const Game = () => {
 
   const showAnswer = () => {
     setAnswerVisible(!answerVisible);
+  };
+
+  const showAiAnswer = () => {
+    setAiAnswerVisible(!aiAnswerVisible);
   };
 
   const setRow = (rowValue) => {
@@ -103,6 +108,7 @@ export const Game = () => {
           gameStart={gameStart}
           winStatus={winStatus}
           loseStatus={loseStatus}
+          showAiAnswer={showAiAnswer}
         />
         <Board
           colors={COLORS}

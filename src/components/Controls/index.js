@@ -12,6 +12,7 @@ export const Controls = ({
   gameStart,
   winStatus,
   loseStatus,
+  showAiAnswer,
 }) => {
   let displayAnswers = answerVisible || loseStatus ? answer : hidden_colors;
   return (
@@ -53,6 +54,14 @@ export const Controls = ({
           )}
         >
           Show Answer
+        </button>
+        <button
+          onClick={() => showAiAnswer()}
+          className={[classes.Button, classes.ButtonBlue, classes.Title].join(
+            " "
+          )}
+        >
+          Show AI Solution
         </button>
       </div>
       {gameStart && !winStatus && !loseStatus ? (
