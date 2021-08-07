@@ -8,6 +8,7 @@ export const MainBoard = ({
   currentIndex,
   lockRow,
   state,
+  gameStart,
   winStatus,
 }) => {
   return (
@@ -22,6 +23,7 @@ export const MainBoard = ({
             currentIndex={currentIndex}
             lockRow={lockRow}
             state={state[index]}
+            gameStart={gameStart}
             winStatus={winStatus}
           />
         ))}

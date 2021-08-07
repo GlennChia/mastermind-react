@@ -10,6 +10,7 @@ export const Board = ({
   currentIndex,
   lockRow,
   state,
+  gameStart,
   winStatus,
 }) => {
   return (
@@ -21,6 +22,7 @@ export const Board = ({
         currentIndex={currentIndex}
         lockRow={lockRow}
         state={state}
+        gameStart={gameStart}
         winStatus={winStatus}
       />
     </div>

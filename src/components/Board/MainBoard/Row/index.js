@@ -12,6 +12,7 @@ export const Row = ({
   currentIndex,
   lockRow,
   state,
+  gameStart,
   winStatus,
 }) => {
   const toggleColors = (index) => {
@@ -43,7 +44,7 @@ export const Row = ({
         <div className={[classes.SmallCircle, classes[state[2]]].join(" ")} />
         <div className={[classes.SmallCircle, classes[state[3]]].join(" ")} />
       </div>
-      {currentIndex === rowNumber && !winStatus ? (
+      {currentIndex === rowNumber && !winStatus && gameStart ? (
         <button
           onClick={() => {
             lockRow();

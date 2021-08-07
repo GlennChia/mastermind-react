@@ -39,11 +39,13 @@ export const Game = () => {
   const [userBoard, setUserBoard] = useState(INITIAL_BOARD);
   const [userState, setUserState] = useState(INITIAL_STATE);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [gameStart, setGameStart] = useState(false);
   const [winStatus, setWinStatus] = useState(false);
   const [loseStatus, setLoseStatus] = useState(false);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
+    setGameStart(true);
     setWinStatus(false);
     setLoseStatus(false);
     setCurrentIndex(0);
@@ -87,6 +89,7 @@ export const Game = () => {
           currentIndex={currentIndex}
           lockRow={lockRow}
           state={userState}
+          gameStart={gameStart}
           winStatus={winStatus}
         />
         <Controls
