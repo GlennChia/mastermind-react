@@ -69,6 +69,7 @@ export const Controls = ({
         </button>
         <button
           onClick={() => showAiAnswer()}
+          disabled={!gameStart}
           className={[classes.Button, classes.ButtonBlue, classes.Title].join(
             " "
           )}
