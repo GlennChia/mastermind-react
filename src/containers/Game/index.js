@@ -5,6 +5,7 @@ import { Board } from "../../components/Board";
 import { createAnswer } from "../../utils/createAnswer";
 import { getMoveScore } from "../../utils/getMoveScore";
 import { stateToColor } from "../../utils/stateToColor";
+import { solveMastermind } from "../../utils/solveMastermind";
 
 const MODELS = ["Naive", "Deep Q Learning", "Q Learning"];
 const COLORS = ["red", "blue", "green", "purple", "yellow"];
@@ -42,7 +43,8 @@ export const Game = () => {
   const [gameStart, setGameStart] = useState(false);
   const [winStatus, setWinStatus] = useState(false);
   const [loseStatus, setLoseStatus] = useState(false);
-  const [aiAnswerVisible, setAiAnswerVisible] = useState(false);
+  const [aiBoard, setAiBoard] = useState(INITIAL_BOARD);
+  const [aiState, setAiState] = useState(INITIAL_STATE);
 
   const startGame = () => {
     const createdAnswer = createAnswer(COLORS, 4);
@@ -53,6 +55,8 @@ export const Game = () => {
     setUserBoard(INITIAL_BOARD);
     setUserState(INITIAL_STATE);
     setAnswer(createdAnswer);
+    setAiBoard(INITIAL_BOARD);
+    setAiState(INITIAL_STATE);
   };
 
   const showAnswer = () => {
@@ -60,7 +64,17 @@ export const Game = () => {
   };
 
   const showAiAnswer = () => {
-    setAiAnswerVisible(!aiAnswerVisible);
+    switch (model) {
+      case "Naive":
+        let [naiveAiBoard, naiveAiState] = solveMastermind(answer);
+        setAiBoard(naiveAiBoard);
+        setAiState(naiveAiState);
+        break;
+      default:
+        let [defaultAiBoard, defaultAiState] = solveMastermind(answer);
+        setAiBoard(defaultAiBoard);
+        setAiState(defaultAiState);
+    }
   };
 
   const setRow = (rowValue) => {
@@ -112,9 +126,9 @@ export const Game = () => {
         />
         <Board
           colors={COLORS}
-          board={INITIAL_BOARD}
+          board={aiBoard}
           setRow={setRow}
-          state={INITIAL_STATE}
+          state={aiState}
         />
       </header>
     </div>
