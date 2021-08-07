@@ -10,6 +10,7 @@ export const MainBoard = ({
   state,
   gameStart,
   winStatus,
+  colors,
 }) => {
   return (
     <div className={classes.Overall}>
@@ -25,6 +26,7 @@ export const MainBoard = ({
             state={state[index]}
             gameStart={gameStart}
             winStatus={winStatus}
+            colors={colors}
           />
         ))}
       </div>

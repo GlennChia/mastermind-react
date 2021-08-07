@@ -8,7 +8,12 @@ import { stateToColor } from "../../utils/stateToColor";
 import { solveMastermind } from "../../utils/solveMastermind";
 
 const MODELS = ["Naive", "Deep Q Learning", "Q Learning"];
-const COLORS = ["red", "blue", "green", "purple", "yellow"];
+const COLORS_5 = ["red", "blue", "green", "purple", "yellow"];
+const COLORS_6 = ["red", "blue", "green", "purple", "yellow", "orange"];
+const COLOR_OPTIONS = {
+  5: COLORS_5,
+  6: COLORS_6,
+};
 const HIDDEN_COLORS = ["default", "default", "default", "default"];
 const INITIAL_BOARD = [
   ["default", "default", "default", "default"],
@@ -45,9 +50,11 @@ export const Game = () => {
   const [loseStatus, setLoseStatus] = useState(false);
   const [aiBoard, setAiBoard] = useState(INITIAL_BOARD);
   const [aiState, setAiState] = useState(INITIAL_STATE);
+  const [numColors, setNumColors] = useState(5);
+  const [colors, setColors] = useState(COLORS_5);
 
   const startGame = () => {
-    const createdAnswer = createAnswer(COLORS, 4);
+    const createdAnswer = createAnswer(colors, 4);
     setGameStart(true);
     setWinStatus(false);
     setLoseStatus(false);
@@ -59,6 +66,11 @@ export const Game = () => {
     setAiState(INITIAL_STATE);
   };
 
+  const setTotalColors = (numColors) => {
+    setNumColors(numColors);
+    setColors(COLOR_OPTIONS[numColors]);
+  };
+
   const showAnswer = () => {
     setAnswerVisible(!answerVisible);
   };
@@ -66,12 +78,15 @@ export const Game = () => {
   const showAiAnswer = () => {
     switch (model) {
       case "Naive":
-        let [naiveAiBoard, naiveAiState] = solveMastermind(answer);
+        let [naiveAiBoard, naiveAiState] = solveMastermind(answer, numColors);
         setAiBoard(naiveAiBoard);
         setAiState(naiveAiState);
         break;
       default:
-        let [defaultAiBoard, defaultAiState] = solveMastermind(answer);
+        let [defaultAiBoard, defaultAiState] = solveMastermind(
+          answer,
+          numColors
+        );
         setAiBoard(defaultAiBoard);
         setAiState(defaultAiState);
     }
@@ -102,7 +117,7 @@ export const Game = () => {
     <div className={classes.App}>
       <header className={classes.Appheader}>
         <Board
-          colors={COLORS}
+          colors={colors}
           board={userBoard}
           setRow={setRow}
           currentIndex={currentIndex}
@@ -123,9 +138,10 @@ export const Game = () => {
           winStatus={winStatus}
           loseStatus={loseStatus}
           showAiAnswer={showAiAnswer}
+          setTotalColors={setTotalColors}
         />
         <Board
-          colors={COLORS}
+          colors={colors}
           board={aiBoard}
           setRow={setRow}
           state={aiState}

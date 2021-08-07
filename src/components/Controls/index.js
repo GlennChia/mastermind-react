@@ -13,6 +13,7 @@ export const Controls = ({
   winStatus,
   loseStatus,
   showAiAnswer,
+  setTotalColors,
 }) => {
   let displayAnswers = answerVisible || loseStatus ? answer : hidden_colors;
   return (
@@ -27,6 +28,17 @@ export const Controls = ({
           {models.map((model) => (
             <option key={model} value={model}>
               {model}
+            </option>
+          ))}
+        </select>
+        <div className={classes.Title}>Total colors:</div>
+        <select
+          className={classes.Dropdown}
+          onChange={(e) => setTotalColors(e.target.value)}
+        >
+          {[5, 6].map((totalColors) => (
+            <option key={totalColors} value={totalColors}>
+              {totalColors}
             </option>
           ))}
         </select>

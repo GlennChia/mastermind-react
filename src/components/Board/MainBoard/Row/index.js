@@ -2,9 +2,6 @@ import React from "react";
 import classes from "./index.module.css";
 import tick from "../../../../assets/tick.png";
 
-const COLORS = ["red", "blue", "green", "purple", "yellow"];
-const DEFAULT_COLORS = ["default", "default", "default", "default"];
-
 export const Row = ({
   row,
   rowNumber,
@@ -14,15 +11,16 @@ export const Row = ({
   state,
   gameStart,
   winStatus,
+  colors,
 }) => {
   const toggleColors = (index) => {
     const tempSelection = [...row];
     const colorIndex =
       tempSelection[index] === "default"
         ? -1
-        : COLORS.indexOf(tempSelection[index]);
-    const newColorIndex = (colorIndex + 1) % COLORS.length;
-    tempSelection[index] = COLORS[newColorIndex];
+        : colors.indexOf(tempSelection[index]);
+    const newColorIndex = (colorIndex + 1) % colors.length;
+    tempSelection[index] = colors[newColorIndex];
     setRow(tempSelection);
   };
   return (

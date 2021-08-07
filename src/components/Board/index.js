@@ -17,6 +17,7 @@ export const Board = ({
     <div className={classes.Overall}>
       <Palette colors={colors} />
       <MainBoard
+        colors={colors}
         board={board}
         setRow={setRow}
         currentIndex={currentIndex}

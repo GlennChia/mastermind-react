@@ -7,6 +7,7 @@ const INDEX_COLORS = {
   2: "green",
   3: "purple",
   4: "yellow",
+  5: "orange",
 };
 
 const COLORS_INDEX = {
@@ -15,9 +16,10 @@ const COLORS_INDEX = {
   green: 2,
   purple: 3,
   yellow: 4,
+  orange: 5,
 };
 
-export const solveMastermind = (answer) => {
+export const solveMastermind = (answer, numColors) => {
   let board = [];
   let state = [];
   let visitedColors = []; // since no repetition, reduce the search space
@@ -37,10 +39,10 @@ export const solveMastermind = (answer) => {
     let currentColor = prediction[currentSlot];
     let currentColorIndex = COLORS_INDEX[currentColor];
     let newColorIndex = currentColorIndex + 1;
-    let newColor = INDEX_COLORS[newColorIndex % 5];
+    let newColor = INDEX_COLORS[newColorIndex % numColors];
     while (visitedColors.includes(newColor)) {
       newColorIndex += 1;
-      newColor = INDEX_COLORS[newColorIndex % 5];
+      newColor = INDEX_COLORS[newColorIndex % numColors];
     }
     let newPrediction = [...prediction];
     newPrediction[currentSlot] = newColor;
