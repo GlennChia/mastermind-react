@@ -100,6 +100,7 @@ export const Game = () => {
           showAnswer={showAnswer}
           answerVisible={answerVisible}
           hidden_colors={HIDDEN_COLORS}
+          gameStart={gameStart}
           winStatus={winStatus}
           loseStatus={loseStatus}
         />
