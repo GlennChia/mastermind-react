@@ -7,7 +7,7 @@ import { getMoveScore } from "../../utils/getMoveScore";
 import { stateToColor } from "../../utils/stateToColor";
 import { solveMastermind } from "../../utils/solveMastermind";
 
-const MODELS = ["Naive", "Deep Q Learning", "Q Learning"];
+const MODELS = ["Naive", "Deep Q Network", "Q Learning", "Genetic algorithm"];
 const COLORS_5 = ["red", "blue", "green", "purple", "yellow"];
 const COLORS_6 = ["red", "blue", "green", "purple", "yellow", "orange"];
 const COLOR_OPTIONS = {
