@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./index.module.css";
 import { Controls } from "../../components/Controls";
 import { Board } from "../../components/Board";
@@ -38,6 +38,7 @@ const INITIAL_STATE = [
   ["default", "default", "default", "default"],
   ["default", "default", "default", "default"],
 ];
+const AI_SOLUTION = [INITIAL_BOARD, INITIAL_STATE];
 
 export const Game = () => {
   const [model, setModel] = useState(MODELS[0]);
@@ -49,8 +50,7 @@ export const Game = () => {
   const [gameStart, setGameStart] = useState(false);
   const [winStatus, setWinStatus] = useState(false);
   const [loseStatus, setLoseStatus] = useState(false);
-  const [aiBoard, setAiBoard] = useState(INITIAL_BOARD);
-  const [aiState, setAiState] = useState(INITIAL_STATE);
+  const [aiSolutiuon, setAiSolutiuon] = useState(AI_SOLUTION);
   const [numColors, setNumColors] = useState(5);
   const [colors, setColors] = useState(COLORS_5);
 
@@ -63,8 +63,7 @@ export const Game = () => {
     setUserBoard(INITIAL_BOARD);
     setUserState(INITIAL_STATE);
     setAnswer(createdAnswer);
-    setAiBoard(INITIAL_BOARD);
-    setAiState(INITIAL_STATE);
+    setAiSolutiuon(AI_SOLUTION);
   };
 
   const setTotalColors = (numColors) => {
@@ -78,27 +77,32 @@ export const Game = () => {
 
   const showAiAnswer = async () => {
     switch (model) {
-      case "Naive":
+      case "Naive": {
         let [naiveAiBoard, naiveAiState] = solveMastermind(answer, numColors);
-        setAiBoard(naiveAiBoard);
-        setAiState(naiveAiState);
+        setAiSolutiuon([naiveAiBoard, naiveAiState]);
         break;
-      case "Genetic algorithm":
+      }
+      case "Q Learning": {
+        let [board, state] = await aiSolution("q-learning", answer, numColors);
+        setAiSolutiuon([board, state]);
+        break;
+      }
+      case "Genetic algorithm": {
         let [board, state] = await aiSolution(
           "genetic-algo",
           answer,
           numColors
         );
-        setAiBoard(board);
-        setAiState(state);
+        setAiSolutiuon([board, state]);
         break;
-      default:
+      }
+      default: {
         let [defaultAiBoard, defaultAiState] = solveMastermind(
           answer,
           numColors
         );
-        setAiBoard(defaultAiBoard);
-        setAiState(defaultAiState);
+        setAiSolutiuon([defaultAiBoard, defaultAiState]);
+      }
     }
   };
 
@@ -152,9 +156,9 @@ export const Game = () => {
         />
         <Board
           colors={colors}
-          board={aiBoard}
+          board={aiSolutiuon[0]}
           setRow={setRow}
-          state={aiState}
+          state={aiSolutiuon[1]}
         />
       </header>
     </div>
