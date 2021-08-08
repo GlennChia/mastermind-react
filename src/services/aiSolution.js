@@ -1,3 +1,5 @@
+import { ENDPOINT } from "../config/config";
+
 export const aiSolution = async (model, target, numColors = 5) => {
   const requestOptions = {
     method: "POST",
@@ -7,10 +9,7 @@ export const aiSolution = async (model, target, numColors = 5) => {
       target: target,
     }),
   };
-  const response = await fetch(
-    `http://localhost:5000/${model}`,
-    requestOptions
-  );
+  const response = await fetch(`${ENDPOINT}/${model}`, requestOptions);
   const data = await response.json();
   return [data.board, data.state];
 };
