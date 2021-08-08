@@ -87,6 +87,11 @@ export const Game = () => {
         setAiSolutiuon([board, state]);
         break;
       }
+      case "Deep Q Network": {
+        let [board, state] = await aiSolution("dqn", answer, numColors);
+        setAiSolutiuon([board, state]);
+        break;
+      }
       case "Genetic algorithm": {
         let [board, state] = await aiSolution(
           "genetic-algo",
