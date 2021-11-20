@@ -5,7 +5,7 @@
 
 # Mastermind
 
-Mastermind is a classic problem-solving game that challenges players identify patterns and respond to turn feedback in a bid to guess the hidden sequence of colors. This application implements 2 algorithms to solve the game of Mastermind. First, a naive solver that solves the colors iteratively by slot. Second, a genetic algorithm inspired by [Dungyichao's Python implementation](https://github.com/Dungyichao/Mastermind), reimplemented and modified in JavaScript. The application is built using the [React framework](https://github.com/facebook/react) and hosted on GitHub pages [here](glennchia.github.io/mastermind-react/). Users can start games with 2 settings (a pool of 5 or 6 colors) and pit their solving skills against the naive and genetic algorithm solvers.
+Mastermind is a classic problem-solving game that challenges players identify patterns and respond to turn feedback in a bid to guess the hidden sequence of colors. This application implements 2 algorithms to solve the game of Mastermind. First, a naive solver that solves the colors iteratively by slot. Second, a genetic algorithm inspired by [Dungyichao's Python implementation](https://github.com/Dungyichao/Mastermind), reimplemented and modified in JavaScript. The application is built using the [React framework](https://github.com/facebook/react) and hosted on GitHub pages [here](https://glennchia.github.io/mastermind-react/). Users can start games with 2 settings (a pool of 5 or 6 colors) and pit their solving skills against the naive and genetic algorithm solvers.
 
 # Navigation
 
