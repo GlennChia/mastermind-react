@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/mastermind-react/static/css/main.a78a8951.chunk.css",
-    "main.js": "/mastermind-react/static/js/main.75a9d5df.chunk.js",
-    "main.js.map": "/mastermind-react/static/js/main.75a9d5df.chunk.js.map",
+    "main.js": "/mastermind-react/static/js/main.857808a1.chunk.js",
+    "main.js.map": "/mastermind-react/static/js/main.857808a1.chunk.js.map",
     "runtime-main.js": "/mastermind-react/static/js/runtime-main.c956fa22.js",
     "runtime-main.js.map": "/mastermind-react/static/js/runtime-main.c956fa22.js.map",
-    "static/js/2.daedd65e.chunk.js": "/mastermind-react/static/js/2.daedd65e.chunk.js",
-    "static/js/2.daedd65e.chunk.js.map": "/mastermind-react/static/js/2.daedd65e.chunk.js.map",
+    "static/js/2.1ea9bf4c.chunk.js": "/mastermind-react/static/js/2.1ea9bf4c.chunk.js",
+    "static/js/2.1ea9bf4c.chunk.js.map": "/mastermind-react/static/js/2.1ea9bf4c.chunk.js.map",
     "static/js/3.d309294e.chunk.js": "/mastermind-react/static/js/3.d309294e.chunk.js",
     "static/js/3.d309294e.chunk.js.map": "/mastermind-react/static/js/3.d309294e.chunk.js.map",
     "index.html": "/mastermind-react/index.html",
     "static/css/main.a78a8951.chunk.css.map": "/mastermind-react/static/css/main.a78a8951.chunk.css.map",
-    "static/js/2.daedd65e.chunk.js.LICENSE.txt": "/mastermind-react/static/js/2.daedd65e.chunk.js.LICENSE.txt",
+    "static/js/2.1ea9bf4c.chunk.js.LICENSE.txt": "/mastermind-react/static/js/2.1ea9bf4c.chunk.js.LICENSE.txt",
     "static/media/index.css": "/mastermind-react/static/media/Orbitron-VariableFont_wght.bd8d17ef.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.c956fa22.js",
-    "static/js/2.daedd65e.chunk.js",
+    "static/js/2.1ea9bf4c.chunk.js",
     "static/css/main.a78a8951.chunk.css",
-    "static/js/main.75a9d5df.chunk.js"
+    "static/js/main.857808a1.chunk.js"
   ]
 }
