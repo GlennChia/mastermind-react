@@ -2,6 +2,18 @@ import { getMoveScore } from "../utils/getMoveScore";
 import { stateToColor } from "../utils/stateToColor";
 import { INDEX_COLORS, COLORS_INDEX } from "../constants/constants";
 
+/**
+ * Solves the mastermind game using a naive algorithm
+ *
+ * @param {string[]} answer - target array of colors
+ * @param {number} numColors - total number of colors to choose from
+ * @return {string[][]} - board and move state represented by colors
+ *
+ * @example
+ *
+ *     let answer = ['green', 'yellow', 'red', 'blue']
+ *     solveMastermindNaiveAlgo(answer, 5)
+ */
 export const solveMastermindNaiveAlgo = (answer, numColors) => {
   let board = [];
   let state = [];

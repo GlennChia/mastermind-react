@@ -102,14 +102,14 @@ function makePrediction(permutations) {
 /**
  * Solves the mastermind game using a genetic algorithm
  *
- * @param {string[]} answer - array of permutations
+ * @param {string[]} answer - target array of colors
  * @param {number} numColors - total number of colors to choose from
  * @return {string[][]} - board and move state represented by colors
  *
  * @example
  *
  *     let answer = ['green', 'yellow', 'red', 'blue']
- *     geneticAlgorithm(answer, 5)
+ *     solveMastermindGeneticAlgo(answer, 5)
  */
 export const solveMastermindGeneticAlgo = (answer, numColors) => {
   answer = colorsToIndex(answer, COLORS_INDEX);
