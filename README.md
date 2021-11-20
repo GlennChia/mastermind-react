@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+<img src="./docs/logo.ico" alt="mastermind-logo" width="20%"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Available Scripts
 
-In the project directory, you can run:
+# Mastermind
 
-### `npm start`
+Mastermind is a classic problem-solving game that challenges players identify patterns and respond to turn feedback in a bid to guess the hidden sequence of colors. This application implements 2 algorithms to solve the game of Mastermind. First, a naive solver that solves the colors iteratively by slot. Second, a genetic algorithm inspired by [Dungyichao's Python implementation](https://github.com/Dungyichao/Mastermind), reimplemented and modified in JavaScript. The application is built using the [React framework](https://github.com/facebook/react) and hosted on GitHub pages [here](https://glennchia.github.io/mastermind-react/). Users can start games with 2 settings (a pool of 5 or 6 colors) and pit their solving skills against the naive and genetic algorithm solvers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Navigation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. [User interface](#UI)
+2. [Running the application locally](#RUNLOCALLY)
+3. [Deployment to GitHub pages](#DEPLOY)
+4. [Contributing](#CONTRIBUTING)
 
-### `npm test`
+# User interface <a name="UI"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![sample-ui](./docs/01-user-interface.png)
 
-### `npm run build`
+# Running the application locally <a name="RUNLOCALLY"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Run the following to start the app locally:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Deployment to GitHub pages <a name="DEPLOY"></a>
 
-### `npm run eject`
+This static site is deployed to GitHub pages. Run:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm run deploy
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Contributing <a name="CONTRIBUTING"></a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Before making commits, lint the code
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run lint:fix
+```

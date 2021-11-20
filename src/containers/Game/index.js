@@ -5,9 +5,10 @@ import { Board } from "../../components/Board";
 import { createAnswer } from "../../utils/createAnswer";
 import { getMoveScore } from "../../utils/getMoveScore";
 import { stateToColor } from "../../utils/stateToColor";
-import { solveMastermind } from "../../utils/solveMastermind";
+import { solveMastermindNaiveAlgo } from "../../solvers/solveMastermindNaiveAlgo";
+import { solveMastermindGeneticAlgo } from "../../solvers/solveMastermindGeneticAlgo";
 
-const MODELS = ["Naive", "Deep Q Network", "Q Learning", "Genetic algorithm"];
+const MODELS = ["Naive", "Genetic algorithm"];
 const COLORS_5 = ["red", "blue", "green", "purple", "yellow"];
 const COLORS_6 = ["red", "blue", "green", "purple", "yellow", "orange"];
 const COLOR_OPTIONS = {
@@ -78,12 +79,23 @@ export const Game = () => {
   const showAiAnswer = () => {
     switch (model) {
       case "Naive":
-        let [naiveAiBoard, naiveAiState] = solveMastermind(answer, numColors);
+        let [naiveAiBoard, naiveAiState] = solveMastermindNaiveAlgo(
+          answer,
+          numColors
+        );
         setAiBoard(naiveAiBoard);
         setAiState(naiveAiState);
         break;
+      case "Genetic algorithm":
+        let [geneticAlgoBoard, geneticAlgoState] = solveMastermindGeneticAlgo(
+          answer,
+          numColors
+        );
+        setAiBoard(geneticAlgoBoard);
+        setAiState(geneticAlgoState);
+        break;
       default:
-        let [defaultAiBoard, defaultAiState] = solveMastermind(
+        let [defaultAiBoard, defaultAiState] = solveMastermindNaiveAlgo(
           answer,
           numColors
         );
