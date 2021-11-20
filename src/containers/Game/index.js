@@ -5,8 +5,8 @@ import { Board } from "../../components/Board";
 import { createAnswer } from "../../utils/createAnswer";
 import { getMoveScore } from "../../utils/getMoveScore";
 import { stateToColor } from "../../utils/stateToColor";
-import { solveMastermindNaiveAlgo } from "../../utils/solveMastermindNaiveAlgo";
-import { solveMastermindGeneticAlgo } from "../../utils/solveMastermindGeneticAlgo";
+import { solveMastermindNaiveAlgo } from "../../solvers/solveMastermindNaiveAlgo";
+import { solveMastermindGeneticAlgo } from "../../solvers/solveMastermindGeneticAlgo";
 
 const MODELS = ["Naive", "Genetic algorithm"];
 const COLORS_5 = ["red", "blue", "green", "purple", "yellow"];

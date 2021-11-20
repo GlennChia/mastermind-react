@@ -1,7 +1,7 @@
-import { getMoveScore } from "./getMoveScore";
-import { stateToColor } from "./stateToColor";
-import { predictionToColor } from "./predictionToColor";
-import { colorsToIndex } from "./colorsToIndex";
+import { getMoveScore } from "../utils/getMoveScore";
+import { stateToColor } from "../utils/stateToColor";
+import { predictionToColor } from "../utils/predictionToColor";
+import { colorsToIndex } from "../utils/colorsToIndex";
 var _ = require("underscore");
 
 const INDEX_COLORS = {

@@ -1,5 +1,5 @@
-import { getMoveScore } from "./getMoveScore";
-import { stateToColor } from "./stateToColor";
+import { getMoveScore } from "../utils/getMoveScore";
+import { stateToColor } from "../utils/stateToColor";
 
 const INDEX_COLORS = {
   0: "red",
