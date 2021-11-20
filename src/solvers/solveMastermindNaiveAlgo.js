@@ -1,23 +1,6 @@
 import { getMoveScore } from "../utils/getMoveScore";
 import { stateToColor } from "../utils/stateToColor";
-
-const INDEX_COLORS = {
-  0: "red",
-  1: "blue",
-  2: "green",
-  3: "purple",
-  4: "yellow",
-  5: "orange",
-};
-
-const COLORS_INDEX = {
-  red: 0,
-  blue: 1,
-  green: 2,
-  purple: 3,
-  yellow: 4,
-  orange: 5,
-};
+import { INDEX_COLORS, COLORS_INDEX } from "../constants/constants";
 
 export const solveMastermindNaiveAlgo = (answer, numColors) => {
   let board = [];

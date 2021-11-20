@@ -2,25 +2,8 @@ import { getMoveScore } from "../utils/getMoveScore";
 import { stateToColor } from "../utils/stateToColor";
 import { predictionToColor } from "../utils/predictionToColor";
 import { colorsToIndex } from "../utils/colorsToIndex";
+import { INDEX_COLORS, COLORS_INDEX } from "../constants/constants";
 var _ = require("underscore");
-
-const INDEX_COLORS = {
-  0: "red",
-  1: "blue",
-  2: "green",
-  3: "purple",
-  4: "yellow",
-  5: "orange",
-};
-
-const COLORS_INDEX = {
-  red: 0,
-  blue: 1,
-  green: 2,
-  purple: 3,
-  yellow: 4,
-  orange: 5,
-};
 
 /**
  * Returns an array of length arrayLength with unique numbers ranging from 0 to (numColors -1)
