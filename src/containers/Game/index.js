@@ -8,7 +8,7 @@ import { stateToColor } from "../../utils/stateToColor";
 import { solveMastermind } from "../../utils/solveMastermind";
 import { solveMastermindGeneticAlgo } from "../../utils/solveMastermindGeneticAlgo";
 
-const MODELS = ["Naive", "Deep Q Network", "Q Learning", "Genetic algorithm"];
+const MODELS = ["Naive", "Genetic algorithm"];
 const COLORS_5 = ["red", "blue", "green", "purple", "yellow"];
 const COLORS_6 = ["red", "blue", "green", "purple", "yellow", "orange"];
 const COLOR_OPTIONS = {
