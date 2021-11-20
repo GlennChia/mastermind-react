@@ -1,3 +1,16 @@
+/**
+ * Returns an array with details about incorrect, correctColorWrongLocation, and correctColorLocation
+ *
+ * @param {number[]|string[]} input - user entered array that is compared to the answer
+ * @param {number[]|string[]} answer - target array
+ * @return {number[]} - scores associated to the current input
+ *
+ * @example
+ *
+ *     prediction = [2, 4, 1, 3]
+ *     answer = [3, 4, 1, 0]
+ *     getMoveScore(prediction, answer)
+ */
 export const getMoveScore = (input, answer) => {
   let correctColorLocation = 0;
   let correctColorWrongLocation = 0;
