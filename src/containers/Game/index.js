@@ -5,7 +5,7 @@ import { Board } from "../../components/Board";
 import { createAnswer } from "../../utils/createAnswer";
 import { getMoveScore } from "../../utils/getMoveScore";
 import { stateToColor } from "../../utils/stateToColor";
-import { solveMastermind } from "../../utils/solveMastermind";
+import { solveMastermindNaiveAlgo } from "../../utils/solveMastermindNaiveAlgo";
 import { solveMastermindGeneticAlgo } from "../../utils/solveMastermindGeneticAlgo";
 
 const MODELS = ["Naive", "Genetic algorithm"];
@@ -79,7 +79,10 @@ export const Game = () => {
   const showAiAnswer = () => {
     switch (model) {
       case "Naive":
-        let [naiveAiBoard, naiveAiState] = solveMastermind(answer, numColors);
+        let [naiveAiBoard, naiveAiState] = solveMastermindNaiveAlgo(
+          answer,
+          numColors
+        );
         setAiBoard(naiveAiBoard);
         setAiState(naiveAiState);
         break;
@@ -92,7 +95,7 @@ export const Game = () => {
         setAiState(geneticAlgoState);
         break;
       default:
-        let [defaultAiBoard, defaultAiState] = solveMastermind(
+        let [defaultAiBoard, defaultAiState] = solveMastermindNaiveAlgo(
           answer,
           numColors
         );

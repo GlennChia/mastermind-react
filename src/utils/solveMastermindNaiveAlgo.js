@@ -19,7 +19,7 @@ const COLORS_INDEX = {
   orange: 5,
 };
 
-export const solveMastermind = (answer, numColors) => {
+export const solveMastermindNaiveAlgo = (answer, numColors) => {
   let board = [];
   let state = [];
   let visitedColors = []; // since no repetition, reduce the search space
