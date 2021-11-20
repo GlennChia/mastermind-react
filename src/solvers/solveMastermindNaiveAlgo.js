@@ -14,7 +14,7 @@ import { INDEX_COLORS, COLORS_INDEX } from "../constants/constants";
  *     let answer = ['green', 'yellow', 'red', 'blue']
  *     solveMastermindNaiveAlgo(answer, 5)
  */
-export const solveMastermindNaiveAlgo = (answer, numColors) => {
+function solveMastermind(answer, numColors) {
   let board = [];
   let state = [];
   let visitedColors = []; // since no repetition, reduce the search space
@@ -29,7 +29,10 @@ export const solveMastermindNaiveAlgo = (answer, numColors) => {
   // for progression management
   let previousPerfect = perfect;
   let currentSlot = 0;
+  // for error handling
+  let turn = 1;
   while (true) {
+    turn++;
     // vary the colors by slot
     let currentColor = prediction[currentSlot];
     let currentColorIndex = COLORS_INDEX[currentColor];
@@ -64,6 +67,30 @@ export const solveMastermindNaiveAlgo = (answer, numColors) => {
     if (perfect == 4) {
       break;
     }
+    // Change this number to the upper bound of the number of turns needed to solve mastermind
+    if (turn > 20) {
+      throw new Error("Solver unable to find solution");
+    }
   }
   return [board, state];
+}
+
+/**
+ * Solves the mastermind game using a naive algorithm. Accounts for UI case where numColors is decremented
+ *
+ * @param {string[]} answer - target array of colors
+ * @param {number} numColors - total number of colors to choose from
+ * @return {string[][]} - board and move state represented by colors
+ *
+ * @example
+ *
+ *     let answer = ['green', 'yellow', 'red', 'blue']
+ *     solveMastermindNaiveAlgo(answer, 5)
+ */
+export const solveMastermindNaiveAlgo = (answer, numColors) => {
+  try {
+    return solveMastermind(answer, numColors);
+  } catch (err) {
+    return solveMastermind(answer, 6);
+  }
 };

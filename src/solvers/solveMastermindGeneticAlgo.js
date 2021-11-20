@@ -111,7 +111,7 @@ function makePrediction(permutations) {
  *     let answer = ['green', 'yellow', 'red', 'blue']
  *     solveMastermindGeneticAlgo(answer, 5)
  */
-export const solveMastermindGeneticAlgo = (answer, numColors) => {
+function solveMastermind(answer, numColors) {
   answer = colorsToIndex(answer, COLORS_INDEX);
   let board = [];
   let state = [];
@@ -149,4 +149,24 @@ export const solveMastermindGeneticAlgo = (answer, numColors) => {
     }
   }
   return [board, state];
+}
+
+/**
+ * Solves the mastermind game using a genetic algorithm. Accounts for UI case where numColors is decremented
+ *
+ * @param {string[]} answer - target array of colors
+ * @param {number} numColors - total number of colors to choose from
+ * @return {string[][]} - board and move state represented by colors
+ *
+ * @example
+ *
+ *     let answer = ['green', 'yellow', 'red', 'blue']
+ *     solveMastermindGeneticAlgo(answer, 5)
+ */
+export const solveMastermindGeneticAlgo = (answer, numColors) => {
+  try {
+    return solveMastermind(answer, numColors);
+  } catch (err) {
+    return solveMastermind(answer, 6);
+  }
 };
