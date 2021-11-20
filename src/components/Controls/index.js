@@ -34,7 +34,7 @@ export const Controls = ({
         <div className={classes.Title}>Total colors:</div>
         <select
           className={classes.Dropdown}
-          onChange={(e) => setTotalColors(e.target.value)}
+          onChange={(e) => setTotalColors(parseInt(e.target.value))}
         >
           {[5, 6].map((totalColors) => (
             <option key={totalColors} value={totalColors}>
