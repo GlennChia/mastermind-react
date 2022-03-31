@@ -28,3 +28,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install 7
 ```
+
+### Troubleshooting
+
+**Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath '<example subpath>' is not defined by "exports" in the package.json of a module in node_modules**
+
+Reference: [Stackoverflow](https://stackoverflow.com/questions/69693907/error-err-package-path-not-exported-package-subpath-lib-tokenize-is-not-d)
+
+Solution: Install the TLS version of NodeJS
+
+```bash
+nvm install --lts
+```
