@@ -1,0 +1,116 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: >-
+  Deploys an Amazon Linux 2 instance that automatically launches
+  the react web application for the Mastermind game
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: vpc id to deploy the resources to
+
+  InstanceSubnet:
+    Type: AWS::EC2::Subnet::Id
+    Description: SubnetId for the instance
+
+  InstanceType:
+    Type: String
+    Description: EC2 instance type
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t3.medium
+      - t3.2xlarge
+      - c5.xlarge
+      - c5.2xlarge
+      - m5.large
+    ConstraintDescription: must be a valid EC2 instance type.
+
+  AllowListIp:
+    Type: String
+    Description: >-
+      The IP address range that can access the EC2 instances on HTTP
+    MinLength: 9
+    MaxLength: 18
+    Default: 0.0.0.0/0
+    AllowedPattern: '(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})'
+    ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
+
+Mappings:
+  RegionMap:
+    ap-southeast-1:
+      HVM64: ami-0801a1e12f4a9ccc0
+
+Resources:
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      SubnetId: !Ref InstanceSubnet
+      InstanceType: !Ref InstanceType
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", HVM64]
+      IamInstanceProfile: !Ref InstanceProfile
+      UserData:
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash -xe
+            cd /opt
+            yum install git -y
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install node
+            nvm install --lts
+            git clone https://github.com/GlennChia/mastermind-react.git
+            cd mastermind-react
+            npm i silent
+            npm i pm2 -g
+            sed -i "s/\"start\": \"react-scripts start\",/\"start\": \"PORT=80 react-scripts start\",/" package.json
+            pm2 --name MasterMind start npm -- start
+      SecurityGroupIds:
+        - !Ref InstanceSecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-instance
+
+  InstanceIAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - Sid: AssumeRole
+          Action:
+          - sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service: ec2.amazonaws.com
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles:
+        - !Ref InstanceIAMRole
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Instance Security Group
+      VpcId: !Ref VpcId
+      GroupName: !Sub ${AWS::StackName}-instance-security-group
+      SecurityGroupIngress:
+        - Description: Traffic from the Allow List IP
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: !Ref AllowListIp
+
+Outputs:
+  InstancePrivateDNSName:
+    Description: The private DNS name of the instance
+    Value: !Sub 'http://${Instance.PrivateDnsName}'
+  InstancePrivateIp:
+    Description: The private IP of the instance
+    Value: !Sub 'http://${Instance.PrivateIp}'
