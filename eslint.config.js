@@ -28,6 +28,10 @@ module.exports = [
         console: "readonly",
         process: "readonly",
         require: "readonly",
+        module: "readonly",
+        exports: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
       },
     },
     rules: {
