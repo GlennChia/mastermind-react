@@ -5,8 +5,9 @@
 
 @media (max-width: 768px) {
   .Overall {
-    width: 90%;
-    margin-top: 20px;
+    width: 95%;
+    margin-top: 0;
+    margin-bottom: 10px;
   }
 }
 

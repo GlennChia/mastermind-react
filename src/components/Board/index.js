@@ -15,17 +15,19 @@ export const Board = ({
 }) => {
   return (
     <div className={classes.Overall}>
-      <Palette colors={colors} />
-      <MainBoard
-        colors={colors}
-        board={board}
-        setRow={setRow}
-        currentIndex={currentIndex}
-        lockRow={lockRow}
-        state={state}
-        gameStart={gameStart}
-        winStatus={winStatus}
-      />
+      <div className={classes.BoardContent}>
+        <Palette colors={colors} />
+        <MainBoard
+          colors={colors}
+          board={board}
+          setRow={setRow}
+          currentIndex={currentIndex}
+          lockRow={lockRow}
+          state={state}
+          gameStart={gameStart}
+          winStatus={winStatus}
+        />
+      </div>
     </div>
   );
 };
