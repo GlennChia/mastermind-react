@@ -78,7 +78,7 @@ export const Game = () => {
 
   const showAiAnswer = () => {
     switch (model) {
-      case "Naive":
+      case "Naive": {
         let [naiveAiBoard, naiveAiState] = solveMastermindNaiveAlgo(
           answer,
           numColors,
@@ -86,7 +86,8 @@ export const Game = () => {
         setAiBoard(naiveAiBoard);
         setAiState(naiveAiState);
         break;
-      case "Genetic algorithm":
+      }
+      case "Genetic algorithm": {
         let [geneticAlgoBoard, geneticAlgoState] = solveMastermindGeneticAlgo(
           answer,
           numColors,
@@ -94,13 +95,15 @@ export const Game = () => {
         setAiBoard(geneticAlgoBoard);
         setAiState(geneticAlgoState);
         break;
-      default:
+      }
+      default: {
         let [defaultAiBoard, defaultAiState] = solveMastermindNaiveAlgo(
           answer,
           numColors,
         );
         setAiBoard(defaultAiBoard);
         setAiState(defaultAiState);
+      }
     }
   };
 

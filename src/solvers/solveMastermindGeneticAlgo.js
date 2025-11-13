@@ -166,7 +166,7 @@ function solveMastermind(answer, numColors) {
 export const solveMastermindGeneticAlgo = (answer, numColors) => {
   try {
     return solveMastermind(answer, numColors);
-  } catch (err) {
+  } catch (_err) {
     return solveMastermind(answer, 6);
   }
 };

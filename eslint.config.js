@@ -27,6 +27,7 @@ export default [
         document: "readonly",
         console: "readonly",
         process: "readonly",
+        require: "readonly",
       },
     },
     rules: {
@@ -35,10 +36,31 @@ export default [
       "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
     },
     settings: {
       react: {
         version: "detect",
+      },
+    },
+  },
+  {
+    files: ["**/__tests__/**/*.{js,jsx}", "**/*.test.{js,jsx}"],
+    languageOptions: {
+      globals: {
+        describe: "readonly",
+        test: "readonly",
+        expect: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        jest: "readonly",
       },
     },
   },
