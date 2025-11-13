@@ -6,11 +6,25 @@
   margin-left: 10px;
 }
 
+@media (max-width: 480px) {
+  .Row {
+    padding: 5px;
+    margin-left: 5px;
+  }
+}
+
 .RowNumber {
   color: #7B849C;
   font-size: 20px;
   font-family: Orbitron;
   width: 10px;
+}
+
+@media (max-width: 480px) {
+  .RowNumber {
+    font-size: 16px;
+    width: 8px;
+  }
 }
 
 .Circle {
@@ -19,6 +33,23 @@
   border-radius: 50%;
   margin-left: 15px;
   margin-right: 2px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .Circle {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Circle {
+    height: 35px;
+    width: 35px;
+    margin-left: 8px;
+  }
 }
 
 .red {
@@ -62,6 +93,14 @@
   width: 20px;
   border-radius: 50%;
   margin: 4px;
+}
+
+@media (max-width: 480px) {
+  .SmallCircle {
+    height: 15px;
+    width: 15px;
+    margin: 2px;
+  }
 }
 
 .ButtonGreen {
