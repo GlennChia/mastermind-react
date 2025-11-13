@@ -38,8 +38,15 @@ function solveMastermind(answer, numColors) {
     let currentColorIndex = COLORS_INDEX[currentColor];
     let newColorIndex = currentColorIndex + 1;
     let newColor = INDEX_COLORS[newColorIndex % numColors];
-    while (visitedColors.includes(newColor)) {
+    let attempts = 0;
+    while (visitedColors.includes(newColor) && attempts < numColors) {
       newColorIndex += 1;
+      newColor = INDEX_COLORS[newColorIndex % numColors];
+      attempts++;
+    }
+    // If all colors are visited, reset visitedColors for this slot
+    if (attempts >= numColors) {
+      visitedColors = [];
       newColor = INDEX_COLORS[newColorIndex % numColors];
     }
     let newPrediction = [...prediction];
@@ -56,19 +63,19 @@ function solveMastermind(answer, numColors) {
     } else if (perfect < previousPerfect) {
       // Case 2: previous guess for the slot was correct
       visitedColors.push(currentColor);
-      currentSlot += 1;
+      currentSlot = (currentSlot + 1) % 4;
     } else {
       // Case 3: new guess is correct
       prediction = newPrediction;
       visitedColors.push(newColor);
-      currentSlot += 1;
+      currentSlot = (currentSlot + 1) % 4;
       previousPerfect = perfect;
     }
     if (perfect == 4) {
       break;
     }
     // Change this number to the upper bound of the number of turns needed to solve mastermind
-    if (turn > 20) {
+    if (turn > 50) {
       throw new Error("Solver unable to find solution");
     }
   }
