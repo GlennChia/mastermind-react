@@ -44,8 +44,8 @@ function generatePermutations(numberRange, arrayLength = 4) {
   return numberRange.flatMap((d) =>
     generatePermutations(
       numberRange.filter((a) => a !== d),
-      arrayLength - 1
-    ).map((item) => [d, ...item])
+      arrayLength - 1,
+    ).map((item) => [d, ...item]),
   );
 }
 
@@ -78,13 +78,13 @@ function makePrediction(permutations) {
       let sampleValue = sample[j];
       let [_incorrect, semi, perfect] = getMoveScore(
         permutations[sampleValue],
-        permutations[i]
+        permutations[i],
       );
       for (let k = 0; k < sample.length; k++) {
         let sampleValue2 = sample[k];
         let [_incorrect2, semi2, perfect2] = getMoveScore(
           permutations[sampleValue2],
-          permutations[i]
+          permutations[i],
         );
         if (semi == semi2 && perfect == perfect2) {
           remain++;

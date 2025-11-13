@@ -54,7 +54,7 @@ export const Controls = ({
         <button
           onClick={() => startGame()}
           className={[classes.Button, classes.ButtonGreen, classes.Title].join(
-            " "
+            " ",
           )}
         >
           Start Game
@@ -62,7 +62,7 @@ export const Controls = ({
         <button
           onClick={() => showAnswer()}
           className={[classes.Button, classes.ButtonYellow, classes.Title].join(
-            " "
+            " ",
           )}
         >
           Show Answer
@@ -71,7 +71,7 @@ export const Controls = ({
           onClick={() => showAiAnswer()}
           disabled={!gameStart}
           className={[classes.Button, classes.ButtonBlue, classes.Title].join(
-            " "
+            " ",
           )}
         >
           Show AI Solution

@@ -81,7 +81,7 @@ export const Game = () => {
       case "Naive":
         let [naiveAiBoard, naiveAiState] = solveMastermindNaiveAlgo(
           answer,
-          numColors
+          numColors,
         );
         setAiBoard(naiveAiBoard);
         setAiState(naiveAiState);
@@ -89,7 +89,7 @@ export const Game = () => {
       case "Genetic algorithm":
         let [geneticAlgoBoard, geneticAlgoState] = solveMastermindGeneticAlgo(
           answer,
-          numColors
+          numColors,
         );
         setAiBoard(geneticAlgoBoard);
         setAiState(geneticAlgoState);
@@ -97,7 +97,7 @@ export const Game = () => {
       default:
         let [defaultAiBoard, defaultAiState] = solveMastermindNaiveAlgo(
           answer,
-          numColors
+          numColors,
         );
         setAiBoard(defaultAiBoard);
         setAiState(defaultAiState);
@@ -114,7 +114,7 @@ export const Game = () => {
     const newIndex = currentIndex + 1;
     const [incorrect, semi, perfect] = getMoveScore(
       userBoard[currentIndex],
-      answer
+      answer,
     );
     let stateColor = stateToColor(incorrect, semi, perfect);
     const tempState = [...userState];
